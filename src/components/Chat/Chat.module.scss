@@ -1,0 +1,45 @@
+.Chat {
+	width: min(100vw, 480px);
+
+	.history {
+		display: flex;
+		flex-direction: column;
+		padding: 20px 0;
+		width: 100%;
+
+		.message {
+			display: flex;
+			align-items: flex-start;
+			gap: 5px;
+
+			.from {
+			}
+
+			.fromMe {
+				color: red;
+			}
+
+			.message {
+				white-space: wrap;
+				word-break: break-word;
+				width: 30px;
+				flex-grow: 1;
+			}
+		}
+	}
+
+	.input {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		.textarea {
+			padding: 10px;
+			resize: none;
+		}
+
+		.buttonSend {
+			padding: 10px;
+		}
+	}
+}

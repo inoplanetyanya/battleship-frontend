@@ -3,7 +3,7 @@
 .SignUpSignIn {
 	display: flex;
 	flex-direction: column;
-	width: min-content;
+	width: min(100vw, 480px);
 
 	.tabs {
 		display: flex;
@@ -14,12 +14,12 @@
 		.button {
 			flex-grow: 1;
 			border: 2px solid v.$form-bgc;
-      border-bottom: none;
+			border-bottom: none;
 			padding: 10px 0;
 			border-top-left-radius: 10px;
 			border-top-right-radius: 10px;
-      cursor: pointer;
-      background-color: unset;
+			cursor: pointer;
+			background-color: unset;
 		}
 
 		.tabActive {
