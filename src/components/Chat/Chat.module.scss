@@ -1,0 +1,51 @@
+.Chat {
+	width: min(100vw, 480px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px 0;
+
+	.history {
+		flex-basis: 0;
+		flex-grow: 1;
+		overflow-y: auto;
+		padding-bottom: 20px;
+		width: 100%;
+
+		.message {
+			display: flex;
+			align-items: flex-start;
+			gap: 5px;
+
+			.from {
+			}
+
+			.fromMe {
+				color: red;
+			}
+
+			.message {
+				white-space: wrap;
+				word-break: break-word;
+				width: 30px;
+				flex-grow: 1;
+			}
+		}
+	}
+
+	.input {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		flex-shrink: 0;
+
+		.textarea {
+			padding: 10px;
+			resize: none;
+		}
+
+		.buttonSend {
+			padding: 10px;
+		}
+	}
+}

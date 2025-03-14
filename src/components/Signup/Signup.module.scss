@@ -1,7 +1,6 @@
 @use "@/variables.scss" as v;
 
 .Signup {
-	width: 480px;
 	border-radius: 10px;
 	background-color: v.$form-bgc;
 	padding: 1em;
@@ -20,17 +19,23 @@
 		}
 
 		.inputContainer {
-			display:  flex;
+			display: flex;
 			gap: 10px;
 			justify-content: space-between;
 			align-items: center;
+
+			label {
+				width: 105px;
+			}
+
 			input {
+				width: 0;
+				flex-grow: 1;
 				border-radius: 5px;
 				border: 1px solid black;
 				background-color: #fff;
 				padding: 5px 10px;
 			}
 		}
-
 	}
 }
