@@ -1,5 +1,6 @@
 import Socket from "@/store/socket";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import useDivScroll from "./useDivScroll";
 
 export default function useChat() {
 	type Message = {
@@ -8,9 +9,9 @@ export default function useChat() {
 	};
 	const [history, setHistory] = useState<Array<Message>>([]);
 
-	useEffect(() => {
-		console.log(history);
-	}, [history]);
+	
+	const scroll = useDivScroll();
+	useEffect(scroll.maintainScrollPosition , [history])
 
 	const onSocketMessage = (event: MessageEvent<any>) => {
 		const data = JSON.parse(event.data);
@@ -21,6 +22,9 @@ export default function useChat() {
 
 	useEffect(() => {
 		Socket.socket?.addEventListener("message", onSocketMessage);
+		return () => {
+			Socket.socket?.removeEventListener("message", onSocketMessage);
+		};
 	}, []);
 
 	const [message, setMessage] = useState<string>("");
@@ -38,10 +42,23 @@ export default function useChat() {
 		setMessage("");
 	}, [message]);
 
+	const onTextAreaKeyDown = useCallback(
+		(event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+			if (event.key === "Enter") {
+				sendMessage();
+				event.preventDefault();
+				event.stopPropagation();
+			}
+		},
+		[sendMessage],
+	);
+
 	return {
 		sendMessage,
 		onChange,
+		onTextAreaKeyDown,
 		history,
+		scroll,
 		message,
 	};
 }
