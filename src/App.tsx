@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import User from "./store/user";
 import Socket from "./store/socket";
 import GameRoom from "./components/GameRoom/GameRoom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import store_window from "./store/window";
 
 const App = observer(() => {
@@ -19,7 +19,10 @@ const App = observer(() => {
 	}, []);
 
 	return (
-		<div className={styles.App} style={{height: `${store_window.height}px`}}>
+		<div
+			className={styles.App}
+			style={{ height: `${store_window.height}px` }}
+		>
 			{User.username && Socket.socket ? (
 				<>
 					<GameRoom />
