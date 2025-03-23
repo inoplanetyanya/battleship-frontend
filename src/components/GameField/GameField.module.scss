@@ -1,0 +1,28 @@
+$cellBorderColor: #ccc;
+$cellBgc: #f0f0f0;
+$cellBgcHover: $cellBorderColor;
+
+.GameField {
+	display: flex;
+	flex-direction: column;
+
+	.row {
+		display: flex;
+	}
+
+	.cell {
+		width: calc(2rem - 6px);
+		height: calc(2rem - 6px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid $cellBorderColor;
+		background-color: unset;
+		user-select: none;
+		margin: -1px;
+
+		&:hover {
+			background-color: $cellBgcHover;
+		}
+	}
+}

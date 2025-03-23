@@ -1,0 +1,71 @@
+$cellBorderColor: #000;
+$cellBgc: #f0f0f0;
+$outsideBorder: 2px solid $cellBorderColor;
+
+.Ship {
+	display: flex;
+	width: 12rem;
+	height: 9rem;
+	gap: 20px;
+	justify-content: space-between;
+	touch-action: none;
+
+	.cells {
+		display: flex;
+		width: min-content;
+		height: min-content;
+
+		&.horizontal {
+			flex-direction: row;
+
+			.cell {
+				border-top: $outsideBorder;
+				border-bottom: $outsideBorder;
+				&:first-of-type {
+					border-left: $outsideBorder;
+				}
+				&:last-of-type {
+					border-right: $outsideBorder;
+				}
+			}
+		}
+
+		&.vertical {
+			flex-direction: column;
+
+			.cell {
+				border-left: $outsideBorder;
+				border-right: $outsideBorder;
+
+				&:first-of-type {
+					border-top: $outsideBorder;
+				}
+				&:last-of-type {
+					border-bottom: $outsideBorder;
+				}
+			}
+		}
+
+		.cell {
+			min-width: 2rem;
+			min-height: 2rem;
+			background-color: $cellBgc;
+			border: 1px solid $cellBorderColor;
+		}
+	}
+
+	.buttonContainer {
+		display: flex;
+		align-items: center;
+		.buttonRotate {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2rem;
+			height: 2rem;
+			border: none;
+			border-radius: 4px;
+			background-color: #f0f0f0;
+		}
+	}
+}
