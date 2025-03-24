@@ -11,12 +11,15 @@ export default defineConfig({
 				find: "@",
 				replacement: path.resolve(__dirname, "src"),
 			},
+			{
+				find: "use-sync-external-store/shim",
+				replacement: path.resolve(
+					__dirname,
+					"node_modules/use-sync-external-store/shim/index.js",
+				),
+			},
 		],
 		extensions: [".tsx", ".ts", ".scss"],
 	},
-	build: {
-		rollupOptions: {
-			external: ["use-sync-external-store/shim"],
-		},
-	},
+	base: "./",
 });
